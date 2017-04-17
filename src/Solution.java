@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) {
+        // Example 1 Scenario
         ArrayList<Integer> sessionWindow = new ArrayList<Integer>();
         sessionWindow.add(8);
         sessionWindow.add(15);

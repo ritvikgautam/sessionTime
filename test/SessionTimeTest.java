@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class SessionTimeTest {
+    // Example 1
     @Test
     public void getPercentageAtLeastOneSessionExample1Test() throws Exception {
         SessionTime thisSession = new SessionTime();
@@ -20,9 +21,12 @@ public class SessionTimeTest {
 
         thisSession = new SessionTime(sessionWindow);
 
+        // expected, actual, delta
+        // delta is the error margin that is acceptable for float. This is essential as floats are not reliable in exact comparison
         Assert.assertEquals(0.6f, thisSession.getPercentageAtLeastOneSession(intervalWindow), 0.01);
     }
 
+    // Example 2
     @Test
     public void getPercentageAtLeastOneSessionExample2Test() throws Exception {
         SessionTime thisSession = new SessionTime();
@@ -41,9 +45,12 @@ public class SessionTimeTest {
 
         thisSession = new SessionTime(sessionWindow);
 
+        // expected, actual, delta
+        // delta is the error margin that is acceptable for float. This is essential as floats are not reliable in exact comparison
         Assert.assertEquals(0.5f, thisSession.getPercentageAtLeastOneSession(intervalWindow), 0.01);
     }
 
+    // Example when interval is not present in session window
     @Test
     public void getPercentageAtLeastOneSessionNoIntervalTest() throws Exception {
         SessionTime thisSession = new SessionTime();
@@ -62,9 +69,12 @@ public class SessionTimeTest {
 
         thisSession = new SessionTime(sessionWindow);
 
+        // expected, actual, delta
+        // delta is the error margin that is acceptable for float. This is essential as floats are not reliable in exact comparison
         Assert.assertEquals(0.0f, thisSession.getPercentageAtLeastOneSession(intervalWindow), 0.01);
     }
 
+    // Example when interval is completely present in session window
     @Test
     public void getPercentageAtLeastOneSessionAllInclusiveTest() throws Exception {
         SessionTime thisSession = new SessionTime();
@@ -81,6 +91,8 @@ public class SessionTimeTest {
 
         thisSession = new SessionTime(sessionWindow);
 
+        // expected, actual, delta
+        // delta is the error margin that is acceptable for float. This is essential as floats are not reliable in exact comparison
         Assert.assertEquals(1.0f, thisSession.getPercentageAtLeastOneSession(intervalWindow), 0.01);
     }
 }

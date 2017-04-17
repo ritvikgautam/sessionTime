@@ -27,18 +27,22 @@ public class SessionTime {
     }
 
     public float getPercentageAtLeastOneSession(ArrayList<Integer> interval) {
+        // Get intervals
         Integer startInterval = interval.get(0);
         Integer endInterval = interval.get(1);
 
+        // Get the interval window
         Integer sizeOfInterval = endInterval - startInterval;
         Integer numberOfOpenSession = 0;
 
+        // Loop through the interval. If the time is present in sessionOpen hashset, it means some window was open during that time.
         for(int i = startInterval + 1; i <= endInterval; i++) {
             if(this.sessionOpen.contains(i)) {
                 numberOfOpenSession++;
             }
         }
 
+        // Calculate percentage where at aleast one session was on
         float percentageOneSession = (float) numberOfOpenSession / (float) sizeOfInterval;
 
         return percentageOneSession;
